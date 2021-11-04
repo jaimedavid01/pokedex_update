@@ -4,7 +4,7 @@ import PokemonData from "./PokemonData";
 import './Feed.css';
 
 
-function PokemonCard({ pokemon, key }) {
+function PokemonCard({ pokemon, key, handleShowData}) {
   //// State management
   const [showData, setShowData] = useState(false);
   const [data, setData] = useState([])
@@ -24,22 +24,25 @@ function PokemonCard({ pokemon, key }) {
     fetchPosts().then(poke => {
         setData(poke)
         console.log(data)
-        setShowData((showData) => !showData);
+        setShowData((showData) => !showData)
         });
 
     setLoading(false);
   }
 
 
+
   return (
+    <div>
     <div className="card" key={key} onClick={handleClick}>
       <div>
         <h4>{name}</h4>
         {showData &&  <PokemonData data={data} loading={loading}/> }
       </div>
-        
+    </div>
 
     </div>
+
   );
 }
 

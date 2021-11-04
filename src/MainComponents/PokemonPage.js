@@ -6,17 +6,16 @@ import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 
 
 function PokemonPage() {
+  ///// Data States  
   const [fullData, setFullData] = useState([]);
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  ///// Pagination States
   const [pageNumberLimit, setpageNumberLimit] = useState(10);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
-
   const [currentPage, setCurrentPage] = useState(0)
-
-  
   const [totalPages, setTotalPages] = useState(0)
 
 
@@ -40,8 +39,6 @@ function PokemonPage() {
   
   })}, []);
 
-
-
   //// Change page
   function paginate(number) {
     setLoading(true);
@@ -62,10 +59,10 @@ function PokemonPage() {
   };
 
     ///// Create pages array
-      const pages = [];
+    const pages = [];
       for(let i = 1; i <= totalPages; i++){
       pages.push(i)
-      }
+    }
 
     ////// Create pages list
     const renderPageNumbers = pages.map(number => {
@@ -83,6 +80,7 @@ function PokemonPage() {
     };
         
     });
+
     //////Next & Prev Buttons
     const handleNextbtn = () => {
         setCurrentPage(currentPage + 1)
@@ -108,34 +106,30 @@ function PokemonPage() {
 
   return (
       <Router>
-    <div className="App">
+    <div className="App" >
     
     <h1>POKEDÉX</h1>
 
     <PokemonCollection 
         pokemon={pokemon} 
-        loading={loading} />
-        <Switch>
+        loading={loading}/>
+            <Switch>
         <ul className="pageNumbers">
             <li>
             <button
-            onClick={handlePrevbtn}
-            disabled={currentPage == pages[0] ? true : false}
-            >
-            Prev
-          </button>
+                onClick={handlePrevbtn}
+                disabled={currentPage == pages[0] ? true : false}
+            >Prev</button>
             </li>
             {renderPageNumbers}
             <li>
             <button
-            onClick={handleNextbtn}
-            disabled={currentPage == pages[pages.length - 1] ? true : false}
-            >
-            Next
-          </button>
+                onClick={handleNextbtn}
+                disabled={currentPage == pages[pages.length - 1] ? true : false}
+            >Next</button>
             </li>
         </ul>
-        </Switch>
+            </Switch>
     </div>
       </Router>
     

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Feed.css';
 
 
-function PokemonData({ data, loading }) {
+function PokemonData({ data, loading, showData }) {
   //// Async data conditional
   if(loading) { return <p>Loading...</p>}
 
@@ -10,7 +10,8 @@ function PokemonData({ data, loading }) {
   const { name, sprites, stats, weight, types } = data;
 
   return (
-    <div className="popup">
+    <div className="popup" id="popup2">
+    <div onClick={(e) => e.stopPropagation()}>
       <div className="center">
         <img src={sprites.front_default} alt={name} />
         <h4>{name}</h4>
@@ -28,6 +29,9 @@ function PokemonData({ data, loading }) {
     </ul>
       <p>Weight: {weight}lbs</p>
   </div>
+
+    </div>
+
 );
 
 }
