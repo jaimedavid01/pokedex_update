@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+POKEDEX TECHNICAL ASSESSMENT 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+HOW TO RUN APPLICATION:
 
-## Available Scripts
+-Run npm install to install the dependencies.
 
-In the project directory, you can run:
+-Run npm start to start up our React app at http://localhost:3000.
 
-### `yarn start`
+Task:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Using the free https://pokeapi.co/ API create a site that lists the names of 25 Pokemon.
+The list should include pagination buttons at the bottom, that click through to the next 25
+pokemon and the previous 25 pokemon if they exist.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clicking on a pokemon name should display more information about the pokemon (either inline
+below the pokemon’s name, or on a new page - your choice). The additional information on the
+pokemon should include the following:
+- Image of the pokemon (called ‘sprites’ on this api)
+- A list of the ‘stats’ for that pokemon (name and value)
+- A list of the ‘types’ for that pokemon
+- The weight of the pokemon (assume that the weight unit is lbs, and display that)
+The emphasis of this task is on clean javascript writing, and data collection from an api.
+The UI should be clear and usable - don’t worry too much about design and styling.
+This task should take between 2 - 4 hours to complete.
+Note: If you have a previous coding challenge that you have completed in the past, feel free to
+submit that in the place of this one. If it touches on similar skill sets we’ll accept that in the place
+of this one.
 
-### `yarn test`
+Resources:
+API -
+https://pokeapi.co/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+API Docs -
+https://pokeapi.co/docs/v2
 
-### `yarn build`
+All pokemon endpoint is -
+pokemon?limit=100&offset=200
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Requirements:
+Your completed code example should include a readme.md on how to install, and start the code.
+It’s highly recommended that you follow these instructions from scratch yourself to ensure that
+they work.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

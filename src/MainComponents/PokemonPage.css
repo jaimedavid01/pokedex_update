@@ -1,0 +1,38 @@
+.pageNumbers {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pageNumbers li {
+    padding: 10px;
+    border: 2px solid lightblue;
+    cursor: pointer;
+    list-style: none;
+    padding-left : 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 8px;
+    margin: 5px;
+  }
+
+  .pageNumbers li a {
+    text-decoration: none;
+    color: black;
+  }
+  .pageNumbers li button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .pageNumbers li button:hover {
+    background-color: white;
+    color: black;
+  }
+  .pageNumbers li button:focus {
+    outline: none;
+  }
+  
