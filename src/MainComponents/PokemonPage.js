@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PokemonCollection from "../Feed/PokemonCollection";
 import ReactPaginate from 'react-paginate';
 import './PokemonPage.css';
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, Link, useParams} from "react-router-dom";
 
 
 function PokemonPage() {
@@ -17,15 +17,16 @@ function PokemonPage() {
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
-
-
-
+  const { pageNumber } = useParams();
+  const perPage = 25;
+  const initialOffSet = (pageNumber - 1) * perPage;
+  console.log(pageNumber)
   ////Fetch All Pokemons from API
   useEffect(() => {
 
     const fetchPosts = async () => {
       setLoading(true);
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=25`);
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${initialOffSet}&limit=${perPage}`);
       const items = await response.json();
       setLoading(false);
       console.log(items)
@@ -34,7 +35,7 @@ function PokemonPage() {
     
     fetchPosts().then(poke => {
         setFullData(poke)
-        setTotalPages(Math.ceil(poke.count / 25))
+        setTotalPages(Math.ceil(poke.count / perPage))
         setPokemon(poke.results)
   
   })}, []);
@@ -46,9 +47,9 @@ function PokemonPage() {
     console.log("pageNumber", number)
 
     let offset = 0
-    offset = (number - 1) * 25;
+    offset = (number - 1) * perPage;
 
-    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=25`)
+    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${perPage}`)
     .then(r => r.json())
     .then(data => {
       console.log("data", data)
@@ -70,7 +71,7 @@ function PokemonPage() {
             return (
 
                 <li key={number} id={number} >
-                    <Link to={'/page/' + number} onClick={() => paginate(number)}>
+                    <Link to={'/' + number} onClick={() => paginate(number)}>
                     {number}
                     </Link>
                 </li>
@@ -105,7 +106,7 @@ function PokemonPage() {
       };
 
   return (
-      <Router>
+
     <div className="App" >
     
     <h1>POKEDÉX</h1>
@@ -113,7 +114,7 @@ function PokemonPage() {
     <PokemonCollection 
         pokemon={pokemon} 
         loading={loading}/>
-            <Switch>
+
         <ul className="pageNumbers">
             <li>
             <button
@@ -129,10 +130,8 @@ function PokemonPage() {
             >Next</button>
             </li>
         </ul>
-            </Switch>
     </div>
-      </Router>
-    
+
   );
 }
 
